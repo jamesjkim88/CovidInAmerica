@@ -1,8 +1,8 @@
-async function getCovid19TestData(){
+async function getCovid19USAData(){
   const data = await fetch('/api/covid19');
   return await data.json();
 }
 
 export default {
-  getCovid19TestData
+  getCovid19USAData
 }

@@ -11,9 +11,9 @@ export default function Homepage({lat, long}){
   const [covid19Actuals, setCovid19Actuals] = useState({});
   const [covid19ActualTimeSeries, setCovid19ActualTimeSeries] = useState([]);
 
-  async function getCovid19TestData(){
+  async function getCovid19USAData(){
     try{
-      const data = await apiService.getCovid19TestData();
+      const data = await apiService.getCovid19USAData();
       setCovid19TestData(data);
       setCovid19Actuals(data.actuals)
       setCovid19ActualTimeSeries(data.actualsTimeseries);
@@ -41,7 +41,7 @@ export default function Homepage({lat, long}){
 
 
   useEffect(() => {
-    getCovid19TestData()
+    getCovid19USAData()
   }, [])
 
   return(
@@ -80,10 +80,10 @@ export default function Homepage({lat, long}){
       <ul>
         <li><h3>Tasks:</h3></li>
         <li>install libs needed</li>
-        <li>break down what static and resuable components needed</li>
-        <li>logic for comma rendering for location</li>
+        <li>api endpoints based off the input bar for location</li>
         <li>convert lat and long to city, state, county, legit user location data</li>
-        <li>apply recharts for graphs</li>
+        <li>have logic for components and data render and load at the same time</li>
+        <li>logic for comma rendering for location</li>
       </ul>
     </>
   )

@@ -1,8 +1,8 @@
 const axios = require('axios').default;
 
-const URL = `ttps://api.covidactnow.org/v2/state/CA.timeseries.json?apiKey=${process.env.COVID19_KEY}`;
+const URL = `https://api.covidactnow.org/v2/country/US.timeseries.json?apiKey=${process.env.COVID19_KEY}`;
 
-async function getCovid19TestData(req,res){
+async function getCovid19USAData(req,res){
   axios.get(URL)
     .then(function({data}){
       //console.log(data);
@@ -11,5 +11,5 @@ async function getCovid19TestData(req,res){
 }
 
 module.exports = {
-  getCovid19TestData
+  getCovid19USAData
 }

@@ -8,22 +8,32 @@ export default function Covid19Charts({covid19ActualTimeSeries, chartState}){
       return <Line type="linear" dataKey="cases" stroke="#8883ce" activeDot={{ r: 8 }} dot={false} strokeWidth={3}/>
     }
     else if(chartState === "confirmed-deaths"){
-      return <Line type="linear" dataKey="deaths" stroke="#444"  dot={false} strokeWidth={3}/>
+      return <Line type="linear" dataKey="deaths" stroke="#444" activeDot={{ r: 8 }}  dot={false} strokeWidth={3}/>
     }
     else if(chartState === "total-vax"){
-      return <Line type="linear" dataKey="vaccinationsCompleted" stroke="#000080" dot={false} strokeWidth={3}/>
+      return <Line type="linear" dataKey="vaccinationsCompleted" activeDot={{ r: 8 }} stroke="#000080" dot={false} strokeWidth={3}/>
     }else{
       return <Line type="linear" dataKey="cases" stroke="#8883ce" activeDot={{ r: 8 }} dot={false} strokeWidth={3}/>
     }
   }
 
-  // useEffect(() => {
-  //   lineGenerator()
-  // }, [])
+  function chartHeaderGenerator(){
+    if(chartState === "confirmed-cases"){
+      return <h3>Total Confirmed Cases</h3>
+    }
+    else if(chartState === "confirmed-deaths"){
+      return <h3>Total Deaths</h3>
+    }
+    else if(chartState === "total-vax"){
+      return <h3>Total Vaccinated</h3>
+    }else{
+      return <h3>Total Confirmed Cases</h3>
+  }
+}
 
   return(
     <>
-    <h3>{chartState}</h3>
+    {chartHeaderGenerator()}
     <br />
     <ResponsiveContainer width="100%" height="100%">
     <LineChart
